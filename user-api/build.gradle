@@ -35,9 +35,9 @@ tasks.named('test') {
 }
 
 flyway {
-	url = 'jdbc:postgresql://localhost:5432/arquivo'
+	url = 'jdbc:postgresql://localhost:5432/dev'
 	user = 'postgres'
-	password = '123456'
+	password = 'postgres'
 	driver = 'org.postgresql.Driver'
 	cleanDisabled = false
 }
