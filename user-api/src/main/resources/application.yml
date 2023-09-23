@@ -18,6 +18,7 @@ spring:
     schemas: users
     baseline-on-migrate: true
     clean-disabled: false
+    repair: true
   jpa:
     properties:
       hibernate:

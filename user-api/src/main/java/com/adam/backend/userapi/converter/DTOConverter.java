@@ -1,5 +1,6 @@
-package com.adam.backend.userapi.dtos;
+package com.adam.backend.userapi.converter;
 
+import com.adam.backend.userapi.dtos.UserDTO;
 import com.adam.backend.userapi.models.User;
 
 public class DTOConverter {

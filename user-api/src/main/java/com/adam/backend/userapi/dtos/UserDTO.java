@@ -1,18 +1,17 @@
 package com.adam.backend.userapi.dtos;
 
 import com.adam.backend.userapi.models.User;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
+@ToString
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDTO {
+    private Long id;
     private String nome;
     private String cpf;
     private String endereco;

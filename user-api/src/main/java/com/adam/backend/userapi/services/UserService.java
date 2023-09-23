@@ -1,11 +1,12 @@
 package com.adam.backend.userapi.services;
 
-import com.adam.backend.userapi.dtos.DTOConverter;
+import com.adam.backend.userapi.converter.DTOConverter;
 import com.adam.backend.userapi.dtos.UserDTO;
 import com.adam.backend.userapi.models.User;
 import com.adam.backend.userapi.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -32,6 +33,7 @@ public class UserService {
         return usuario.map(UserDTO::convert).orElse(null);
     }
     public UserDTO save(UserDTO userDTO) {
+        userDTO.setDataCadastro(LocalDateTime.now());
         User user = userRepository.save(User.convert(userDTO));
         return UserDTO.convert(user);
     }
