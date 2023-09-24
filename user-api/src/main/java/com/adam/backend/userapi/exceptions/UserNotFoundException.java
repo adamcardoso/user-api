@@ -1,14 +1,11 @@
 package com.adam.backend.userapi.exceptions;
 
-public class UserNotFoundException extends Exception {
+import java.io.Serial;
 
-    public UserNotFoundException() {
-        super("Usuário não encontrado");
-    }
+public class UserNotFoundException extends RuntimeException {
 
-    public UserNotFoundException(String message) {
-        super(message);
-    }
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     public UserNotFoundException(String message, Throwable cause) {
         super(message, cause);

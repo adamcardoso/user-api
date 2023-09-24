@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class UserDTO {
     private Long id;
+
     private String nome;
     private String cpf;
     private String endereco;
@@ -21,6 +22,7 @@ public class UserDTO {
 
     public static UserDTO convert(User user) {
         UserDTO userDTO = new UserDTO();
+        userDTO.setId(user.getId());
         userDTO.setNome(user.getNome());
         userDTO.setEndereco(user.getEndereco());
         userDTO.setCpf(user.getCpf());

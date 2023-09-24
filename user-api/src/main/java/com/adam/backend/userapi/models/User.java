@@ -20,6 +20,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
     private String cpf;
     private String endereco;
@@ -29,6 +30,7 @@ public class User {
 
     public static User convert(UserDTO userDTO) {
         User user = new User();
+        user.setId(userDTO.getId());
         user.setNome(userDTO.getNome());
         user.setEndereco(userDTO.getEndereco());
         user.setCpf(userDTO.getCpf());
