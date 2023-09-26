@@ -17,7 +17,7 @@ public interface UserService {
 
     void delete(Long userId);
 
-    UserDTO findByCpf(String cpf);
+    UserDTO findByCpf(String cpf, String key);
 
     List<UserDTO> queryByName(String name);
 }

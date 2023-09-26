@@ -19,7 +19,7 @@ public interface UserController {
 
     ResponseEntity<UserDTO> newUser(@Valid @RequestBody UserDTO userDTO);
 
-    UserDTO findByCpf(@PathVariable String cpf);
+    UserDTO findByCpf(@RequestParam(name="key") String key, @PathVariable String cpf);
 
     ResponseEntity<Void> delete(@PathVariable Long id);
 

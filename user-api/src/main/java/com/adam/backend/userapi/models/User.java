@@ -9,34 +9,34 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-@ToString
-@Setter
 @Getter
-@AllArgsConstructor
+@Setter
 @NoArgsConstructor
-@Entity
+@AllArgsConstructor
+@Entity(name="user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    private long id;
     private String nome;
     private String cpf;
     private String endereco;
+    private String key;
     private String email;
     private String telefone;
     private LocalDateTime dataCadastro;
 
     public static User convert(UserDTO userDTO) {
         User user = new User();
-        user.setId(userDTO.getId());
         user.setNome(userDTO.getNome());
         user.setEndereco(userDTO.getEndereco());
         user.setCpf(userDTO.getCpf());
+        user.setKey(userDTO.getKey());
         user.setEmail(userDTO.getEmail());
         user.setTelefone(userDTO.getTelefone());
         user.setDataCadastro(userDTO.getDataCadastro());
         return user;
     }
+
 }

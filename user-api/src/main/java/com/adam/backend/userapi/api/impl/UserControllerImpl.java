@@ -66,8 +66,8 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @GetMapping("/user/cpf/{cpf}")
-    public UserDTO findByCpf(@PathVariable String cpf) {
-        return userService.findByCpf(cpf);
+    public UserDTO findByCpf(@RequestParam(name="key") String key, @PathVariable String cpf) {
+        return userService.findByCpf(cpf, key);
     }
 
     @Override

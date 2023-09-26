@@ -16,6 +16,7 @@ public class UserDTO {
     private String nome;
     private String cpf;
     private String endereco;
+    private String key;
     private String email;
     private String telefone;
     private LocalDateTime dataCadastro;
@@ -25,6 +26,7 @@ public class UserDTO {
         userDTO.setId(user.getId());
         userDTO.setNome(user.getNome());
         userDTO.setEndereco(user.getEndereco());
+        userDTO.setKey(user.getKey());
         userDTO.setCpf(user.getCpf());
         userDTO.setEmail(user.getEmail());
         userDTO.setTelefone(user.getTelefone());

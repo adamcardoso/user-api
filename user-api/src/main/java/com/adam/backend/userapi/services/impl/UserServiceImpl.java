@@ -17,7 +17,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -55,7 +57,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO save(UserDTO userDTO) {
         try{
+            userDTO.setKey(UUID.randomUUID().toString());
             userDTO.setDataCadastro(LocalDateTime.now());
+
             User user = userRepository.save(User.convert(userDTO));
             return UserDTO.convert(user);
         } catch (Exception e) {
@@ -77,12 +81,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO findByCpf(String cpf) {
-        User user = userRepository.findByCpf(cpf);
-        if (user != null) {
+    public UserDTO findByCpf(String cpf, String key) {
+        User user = userRepository.findByCpfAndKey(cpf, key);
+        if (Objects.nonNull(user)) {
             return UserDTO.convert(user);
         }
-        return null;
+        throw new UserNotFoundException("Usuário com a " + cpf + "ou " + key + "não encontrado!");
     }
 
     @Override
